@@ -1,0 +1,3 @@
+#这两行语句是因为Python3.5用pymysql模块代替了MySQLdb
+import pymysql
+pymysql.install_as_MySQLdb()

@@ -1,0 +1,14 @@
+﻿{% extends 'mybootstrap/blogindex.html' %}
+{% block title %}
+注册
+{% endblock%}
+{% block content %}
+<div>
+	<h3>&nbsp;</h3>
+    <h2>用户注册</h2>
+    <form method="post" action=".">
+        {{ form.as_p }}{% csrf_token %}
+        <input type="submit" value="注册" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/main/"> 算了，我不注册了 </a>
+	</form>
+</div>
+{% endblock %}

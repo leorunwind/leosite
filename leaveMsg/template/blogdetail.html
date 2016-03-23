@@ -1,0 +1,42 @@
+﻿{% extends 'mybootstrap/blogindex.html' %}
+
+{% block content %}
+<div class="posts">
+	<h2>&nbsp&nbsp</h2>
+        <section class="post">
+            <div class="col-sm-10">
+					<h3>{{ post.title }}</h3>
+					<p><span class="glyphicon glyphicon-time"></span>
+						{{ post.pubtime|date:"Y M d" }}
+						&nbsp&nbsp
+						<span class="glyphicon glyphicon-tag"></span>
+						<a class="post-category post-category-js" href="{% url 'search_tag' category=post.category %}">{{ post.category|title }}</a>
+					</p>
+			</div><!-- end col -->
+
+            <div class="col-sm-10">
+                    <p>
+                        {{ post.content|safe }}
+                    </p>
+            </div>
+
+        </section>
+</div><!-- /.blog-post -->
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{{ post.id }}" data-title="{{ post.title }}" data-url="{{ post.get_absolute_url }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"leorunwind"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+{% endblock %}

@@ -1,0 +1,47 @@
+﻿{% extends 'mybootstrap/blogindex.html' %}
+{% block title %}
+登录
+{% endblock%}
+{% block content %}
+<div>
+	<h2>&nbsp;</h2>
+	<h2>登录您的LeoSite账号</h2>
+    <p>
+		若没有账号请<a href="/main/register/">注册</a>，或者<a href="/main/">以游客身份登录</a>
+	</p>
+	</hr>
+    
+    <form method="post" action=".">
+        <table class="noframe">
+            <tr>
+                <td align="right">用户名：</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td align="right">密码:&nbsp;</td>
+                <td>
+                    {{ form.password }}
+                </td>
+                <td>
+                    <a href="/main/password/reset/"> 忘记密码 </a>
+                    <input type="hidden" name="next" value="/main/" />
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="登录" />
+                </td>
+            </tr>
+        </table>
+        {% csrf_token %}
+    </form>
+	{% if form.has_errors %}
+        <ul>
+            <li>
+                您输入的用户名或密码错误！ 请重新输入
+            </li>
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

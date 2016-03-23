@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Leo的个人小站</title>
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Bootstrap files -->
+	<!-- Latest compiled and minified CSS and Codehilite -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+</head>
+
+<body data-spy="scroll" data-target="#main-navbar">
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a href="{% url 'blog' %}" class="navbar-brand">LeoSite</a>
+			</div> <!-- end navbar-header -->
+
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<a href="/blog/" class="btn btn-success navbar-btn navbar-right">返回主页</a>
+
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'blog' %}">首页</a></li>
+				</ul>
+			</div> <!-- end collapse -->
+		</div> <!-- end container -->
+	</nav>
+
+
+	<div class="container">
+		<!-- TESTIMONIALS -->
+		<section>
+
+			<div class="row">
+				{% block content %}
+				{% endblock %}
+			</div> <!-- end row -->
+		</section>
+
+	<div>
+		<footer>
+		<hr>
+
+			<div class="container text-center">
+				<ul class="list-inline">
+					<li><a href="http://www.weibo.com/271155842" target="_blank">Weibo</a></li>
+					<li><a href="https://github.com/leorunwind/" target="_blank">Github</a></li>
+					<li><a href="{% url 'RSS' %}" target="_blank">RSS</a></li>
+				</ul>
+
+				<p>&copy; Copyright 2015.</p>
+			</div> <!-- end container -->
+
+		</footer>
+	</div> 
+
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

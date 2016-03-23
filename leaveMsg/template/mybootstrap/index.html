@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Leo的个人小站</title>
+	<meta name="description" content="My Presentation">
+	<meta name="author" content="Leo">
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Bootstrap files -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+	<style type="text/css">
+		body {
+			padding-top: 50px;
+		}
+	</style>
+</head>
+<body data-spy="scroll" data-target="#main-navbar">
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a href="{% url 'blog' %}" class="navbar-brand">LeoSite</a>
+				
+			</div> <!-- end navbar-header -->
+
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<a class="btn btn-success navbar-btn navbar-right">{{ user }}</a>
+
+				<ul class="nav navbar-nav">
+					<li><a href="#section-blog">博客</a></li>
+					<li><a href="#section-interests">兴趣</a></li>
+					<li><a href="#section-present">展示</a></li>
+					<li><a href="#section-detail">详细展示</a></li>
+					<li><a href="#section-leavemsg">给我留言</a></li>
+				</ul>
+				
+			</div> <!-- end collapse -->
+		</div> <!-- end container -->
+	</nav>
+
+	<!-- BANNER -->
+	<div class="jumbotron">
+		
+		<div class="container text-center">
+			<h1>欢迎来到Leo的个人小站</h1>
+			<p>Leo是一个热爱互联网技术的程序猿，他喜欢折腾的东西包括但不限于Python、Java、Shell等语言实现的前后端应用程序、算法设计、网络架构、Linux新技术应用等等。
+			Leo会厚脸皮地说，他是一名学习中的“伪全栈工程师”。</p>
+
+			<div class="btn-group">
+				<a href="/main" class="btn btn-lg btn-success">留言</a>
+				<a href="/main" class="btn btn-lg btn-default">吐槽</a>
+			</div> <!-- end btn-group -->
+		</div> <!-- end container -->
+	</div> <!-- end jumbotron -->
+
+
+
+	<div class="container">
+		<!-- blog -->
+		<section>
+			<div class="page-header" id="section-blog">
+				<h2>博客 
+				<small>
+				<a href="archives/">文章列表</a>
+				</small>
+				</h2>
+			</div> <!-- end page-header -->
+			<div>
+				<form class="pure-form" action="search/" method="get">
+						<input class="pure-input-3-3" type="text" name="s" placeholder="搜索本站博客">
+				</form>
+			</div> <!-- end search-bar -->
+			<div class="row">
+				{% block content %}
+				{% endblock %}
+			</div> <!-- end row -->
+		</section>
+
+
+		<!-- interests -->
+		<section>
+			<div class="page-header" id="section-interests">
+				<h2>兴趣<small>那些年捣鼓过的互联网</small></h2>
+			</div> <!-- end page-header -->
+
+			<div class="row">
+				<div class="col-sm-8">
+					<h3>Linux</h3>
+					<p>在Linux上面捣鼓过网络交换及终端技术，编写Shell脚本/编译内核等，有Redis使用经验</p>
+				</div>
+			</div> <!-- end row -->
+
+			<div class="row">
+				<div class="col-sm-8">
+					<h3>Python</h3>
+					<p>爬虫、django搭建网站（包括这个站点）、PIL图像处理、MySQL扩展库等</p>
+				</div>
+			</div> <!-- end row -->
+
+			<div class="row">
+				<div class="col-sm-8">
+					<h3>Java</h3>
+					<p>学得不深入。曾在EZT互联网医疗公司担任研发实习生岗位，学习过Android APP开发</p>
+				</div>
+			</div> <!-- end row -->
+
+			<hr>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="panel panel-default text-center">
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-search"></span>
+
+							<h4>社团经历</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, aliquam.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="panel panel-default text-center">
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-ok"></span>
+
+							<h4>获奖情况</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, aliquam.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="panel panel-default text-center">
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-time"></span>
+
+							<h4>七七八八</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, aliquam.</p>
+						</div>
+					</div>
+				</div>
+			</div> <!-- end row -->
+		</section>
+	</div> <!-- end container -->
+
+
+	<div class="container">
+		<!-- present -->
+		<section>
+			<div class="page-header" id="section-present">
+				<h2>展示<small>一些成果的简单展示.</small></h2>
+			</div> <!-- end page-header -->
+
+			<div class="carousel slide" id="present-carousel" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#present-carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#present-carousel" data-slide-to="1"></li>
+					<li data-target="#present-carousel" data-slide-to="2"></li>
+				</ol>
+
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href="http://bbs.byr.cn/#!article/Python/11519" target="_blank">
+							<img src="http://bbs.byr.cn/att/Python/0/11519/737" height="650" width="500" align="center" alt="Slider image">
+						</a>
+						<div class="carousel-caption"><font color="black">抓取网站动态数据并统计</font></div>
+					</div>
+					<div class="item">
+						<a href="https://github.com/leorunwind/py2webwx" target="_blank">
+							<img src="http://www.skjqr.com/static/images/xhj.jpg" height="650" width="500" alt="Slider image">
+
+						</a>
+						<div class="carousel-caption"><font color="black">支持定时发送和无限群发的微信机器人</font></div>
+					</div>
+					<div class="item">
+						<a href="http://blog.sina.com.cn/s/blog_6db299e90101eww6.html" target="_blank">
+							<img src="http://images.cnitblog.com/blog/257712/201412/261701125303966.jpg" height="650" width="500" align="center" alt="Slider image">
+						</a>
+						<div class="carousel-caption"><font color="black">同时利用无线和有线提高速率的黑科技</font></div>
+					</div>
+				</div> <!-- end carousel-inner -->
+
+				<a href="#present-carousel" class="left carousel-control" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a href="#present-carousel" class="right carousel-control" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div> <!-- end carousel -->
+		</section>
+
+
+		<!-- F.A.Q. -->
+		<section>
+			<div class="page-header" id="section-detail">
+				<h2>详细展示 <small>详细的说明及代码</small></h2>
+			</div> <!-- end page-header -->
+
+			<div class="panel-group" id="detail">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#qa-1" data-toggle="collapse" data-parent="#accordion-qa">Github</a></h4>
+					</div>
+					<div class="panel-collapse collapse in" id="qa-1">
+						<div class="panel-body">
+							微信机器人、爬取网站动态数据并自动写入图表<a href="https://github.com/leorunwind">点击前往</a>
+						</div> <!-- end panel-body -->
+					</div> <!-- end collapse -->
+				</div> <!-- end panel -->
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#qa-2" data-toggle="collapse" data-parent="#accordion-qa">CSDN博客</a></h4>
+					</div>
+					<div class="panel-collapse collapse" id="qa-2">
+						<div class="panel-body">
+						部分项目的设计及实现的总结，以及学习经历，包括代码注解<a href="http://blog.csdn.net/buptlrw">点击前往</a>
+						</div> <!-- end panel-body -->
+					</div> <!-- end collapse -->
+				</div> <!-- end panel -->
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#qa-3" data-toggle="collapse" data-parent="#accordion-qa">科研成果</a></h4>
+					</div>
+					<div class="panel-collapse collapse" id="qa-3">
+						<div class="panel-body">
+						论文及专利
+						</div> <!-- end panel-body -->
+					</div> <!-- end collapse -->
+				</div> <!-- end panel -->
+			</div> <!-- end panel-group -->
+		</section>
+
+
+		<!-- CONTACT -->
+		<section>
+			<div class="page-header" id="section-leavemsg">
+				<h2>给我留言<small>期待您的宝贵建议</small></h2>
+			</div> <!-- end page-header -->
+
+			<div class="row">
+				<div class="col-lg-4">
+					<p>可以通过多说评论框绑定社交帐号直接留言；</p>
+					<p>或者通过Leosite留言板功能评论<a href="/main/post">点击前往LeoSite留言板</a></small>；</p>
+					<p>您也可以通过以下联系方式跟Leo联系：</p>
+
+					<address>
+						<strong>WSN Lab BUPT</strong><br>
+						<abbr title="Nickname">Nickname: </abbr>LeoRunWind<br>
+						<abbr title="WeChat">WeChat: </abbr>rookieDevelopers<br>
+						<abbr title="Email">Email: </abbr> luorunwen@bupt.edu.cn<br>
+						<abbr title="QQ">QQ: </abbr> 2814962526
+					</address>
+				</div>
+				<div class="col-lg-8">
+					<!-- 多说评论框 start -->
+					<div class="ds-thread"></div>
+							<script type="text/javascript">
+								var duoshuoQuery = {short_name:"leorunwind"};
+									(function() {
+										var ds = document.createElement('script');
+										ds.type = 'text/javascript';ds.async = true;
+										ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+										ds.charset = 'UTF-8';
+										(document.getElementsByTagName('head')[0] 
+										 || document.getElementsByTagName('body')[0]).appendChild(ds);
+									})();
+							</script>
+					</div>
+					<!-- 多说 end -->
+				</div> <!-- end row -->
+		</section>
+
+
+		<!-- FOOTER -->
+		<footer>
+			<hr>
+
+			<div class="container text-center">
+				<h3>Some mottos to inspire myself</h3>
+				<p>Life is tough but we have to go on.</p>
+
+				<hr>
+
+				<ul class="list-inline">
+					<li><a href="http://www.weibo.com/271155842" target="_blank">Weibo</a></li>
+					<li><a href="https://github.com/leorunwind/" target="_blank">Github</a></li>
+					<li><a href="{% url 'RSS' %}" target="_blank">RSS</a></li>
+				</ul>
+
+				<p>&copy; Copyright 2015.</p>
+			</div> <!-- end container -->
+
+		</footer>
+	</div> <!-- end container -->
+
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

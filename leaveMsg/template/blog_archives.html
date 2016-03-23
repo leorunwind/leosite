@@ -1,0 +1,58 @@
+﻿{% extends 'mybootstrap/blogindex.html' %}
+{% block title %}
+    Leo的个人小站
+{% endblock %}
+{% block content %}
+<div class="posts">
+	<h2>&nbsp;</h2>
+	{% if error %}
+		<h2 class="post-title">NOT Found</h2>
+	{% else %}
+	
+	<div>
+		{% for post in posts %}
+        <section class="post">
+				
+				<div class="col-sm-8">
+                <h3 class="post-title">
+					{{ post.title }}
+				</h3>
+
+                    <p class="post-meta">
+						<span class="glyphicon glyphicon-time"></span>
+                        {{ post.pubtime|date:"Y M d" }}
+						&nbsp&nbsp
+						<span class="glyphicon glyphicon-tag"></span>
+						<a class="post-category post-category-js" href="{% url 'search_tag' category=post.category %}">{{ post.category|title }}</a>
+                    </p>
+				</div>
+				
+                <div class="col-sm-8" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                    <p>
+                        {{ post.content }}
+                    </p>
+                </div>
+				<div class="col-sm-2">
+					<a class="pure-button" href="{% url 'detail' id=post.id %}">查看全文 >>> </a>
+				</div>
+        </section>
+		</hr>
+		{% endfor %}
+	</div>
+	{% endif %}
+	
+	{% if posts.object_list and posts.paginator.num_pages > 1 %}
+	<div>
+		<ul class="pager">
+		{% if posts.has_previous %}
+			<li><a href="?page={{ posts.previous_page_number }}">上一页</a></li>
+		{% endif %}
+
+		{% if posts.has_next %}
+        <li><a href="?page={{ posts.next_page_number }}">下一页</a></li>
+		{% endif %}
+		</ul>
+	</div>
+    {% endif %}<!-- paginator -->
+</div><!-- /.blog-post -->
+{% endblock %}

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn" >
+{% extends 'mybootstrap/blogindex.html' %}
+{% block title%}
+    BUPT Tree Hole
+{% endblock%}
+{% block content %}
+<div>
+	<h3>&nbsp;</h3>
+    <h1 align="center">留言</h1>
+    <div align="right">
+
+	<p>欢迎您，{{ user }}</p>
+		<a href="/accounts/login/">登录</a>|
+        <a href="/main/post/"> 发表留言 </a>|
+        <a href="/main/logout/"> 退出 </a>
+
+    </div>
+</div>
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>
+		<abbr title="time">Time:</abbr>{{ post.datetime }}<br>
+		<abbr title="username">User:</abbr>{{ post.user }}<br>
+		</p>
+        <p>{{ post.content }}</p>
+        <hr />
+    {% endfor %}
+	
+    {% if posts.object_list and posts.paginator.num_pages > 1 %}
+	<div>
+		<ul class="pager">
+		{% if posts.has_previous %}
+			<li><a href="?page={{ posts.previous_page_number }}">上一页</a></li>
+		{% endif %}
+
+		{% if posts.has_next %}
+        <li><a href="?page={{ posts.next_page_number }}">下一页</a></li>
+		{% endif %}
+		</ul>
+	</div>
+    {% endif %}<!-- paginator -->
+	
+{% endblock %}
+</html>

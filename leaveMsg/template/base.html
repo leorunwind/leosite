@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <style type="text/css">
+        body { color: #nbd; background: #949449; padding: 0 5em; margin: 0; font-size: 80%;size:16;font-family: sans-serif, serif; }
+        h1 { padding: 1em 0.5em; background: #675;  }
+        h2 { color: #bf8; border-top: 1.5px; margin-top: 1em }
+        p { margin: 0.5em 0 }
+        input {display:block; border:1 solid black}
+        table.noframe, table.noframe td{border:0}
+    </style>
+    <body>
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

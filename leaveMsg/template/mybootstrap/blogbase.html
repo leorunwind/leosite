@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Product page :: Built with Twitter Bootstrap</title>
+	<meta name="description" content="A product presentation page built for a Tuts+ course">
+	<meta name="author" content="Adi Purdila">
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Bootstrap files -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+	<style>
+		body {
+			padding-top: 50px;
+		}
+	</style>
+
+	<!--代码高亮start-->
+	<link type="text/css" rel="stylesheet" href="code.css"/>
+	<!--代码高亮end-->
+</head>
+<body data-spy="scroll" data-target="#main-navbar">
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a href="index.html" class="navbar-brand">Product Name</a>
+			</div> <!-- end navbar-header -->
+
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<a href="#" class="btn btn-success navbar-btn navbar-right">Buy Now</a>
+
+				<ul class="nav navbar-nav">
+					<li><a href="#section-testimonials">Testimonials</a></li>
+					<li><a href="#section-features">Features</a></li>
+					<li><a href="#section-gallery">Gallery</a></li>
+					<li><a href="#section-faq">F.A.Q.</a></li>
+					<li><a href="#section-contact">Contact</a></li>
+				</ul>
+			</div> <!-- end collapse -->
+		</div> <!-- end container -->
+	</nav>
+
+	<div class="container">
+		<!-- TESTIMONIALS -->
+		<section>
+			{% block content %}
+			{% endblock %}
+		</section>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

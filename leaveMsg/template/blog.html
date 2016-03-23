@@ -1,0 +1,36 @@
+﻿{% extends 'mybootstrap/index.html' %}
+{% block title %}
+    Leo的个人小站
+{% endblock %}
+{% block content %}
+<div class="posts">
+    {% for post in posts %}
+        <section class="post">
+
+				<div class="col-sm-8">
+					<h3>{{ post.title }}</h3>
+					<p>
+						<span class="glyphicon glyphicon-time"></span>
+							{{ post.pubtime|date:"Y M d" }}
+						&nbsp&nbsp
+						<span class="glyphicon glyphicon-tag"></span>
+						<a class="post-category post-category-js" href="{% url 'search_tag' category=post.category %}">
+							{{ post.category|title }}
+							
+						</a>
+					</p>
+				</div><!-- end col -->
+
+                <div class="col-sm-8" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                    <p>
+                        {{ post.content }}
+                    </p>
+                </div>
+				<div class="col-sm-8">
+					<a class="pure-button" href="{% url 'detail' id=post.id %}">查看全文 >>> </a>
+				</div>
+        </section>
+    {% endfor %}
+	
+</div><!-- /.blog-post -->
+{% endblock %}

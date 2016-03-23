@@ -1,0 +1,20 @@
+﻿{% extends 'mybootstrap/blogindex.html' %}
+{% block title %}
+注册
+{% endblock%}
+{% block content %}
+    <div align="center">
+	<h2>&nbsp;</h2>
+        <div align="right">
+                <a href="/main/"> 留言板 </a> |
+                <a href="/main/logout/"> 退出 </a>|
+                <a href="/accounts/login/"> 登录 </a> |
+                <a href="/main/register/"> 注册 </a>
+        </div>
+        <h1>发表新帖</h1>
+        <form method="post" action=".">
+            {{ form.as_p }}{% csrf_token %}
+            <input type="submit" value="发表" />
+        </form>
+    </div>
+{% endblock %}
