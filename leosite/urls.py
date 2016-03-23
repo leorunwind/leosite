@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.http import HttpResponse as res
+#从三个app文件夹里的view.py文件导入函数，实现指定url到后台的交互
 from leaveMsg.view import archive,main,register_page,msg_post_page
 from todoList.views import event_list_page,event_post_page
 from blog.views import blog_list,detail,search_tag,archives,blog_search,RSSFeed
+
 from django.views.generic import TemplateView
 from django.contrib.auth.views import login,logout,password_change,password_change_done
 
@@ -32,8 +34,7 @@ urlpatterns = [
     #(不开启的app要注释掉url以提升性能)
     url(r'^admin/', admin.site.urls),
     url(r'^hello/',hello),
-	
-	url(r'^index/$',blog_list,name='index'),
+
     url(r'^blog/$',blog_list,name='blog'),
     url(r'^blog/id=(?P<id>\d+)/$',detail,name='detail'),
     url(r'^blog/category=(?P<category>\w+)/$', search_tag, name='search_tag'),
